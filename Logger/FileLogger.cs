@@ -17,9 +17,8 @@ namespace Logger
         {
             using (StreamWriter sw = System.IO.File.AppendText(@fileName))
             {
-                sw.WriteLine(DateTime.Now + " " + ClassName + " " + logLevel +" " + message);
+                sw.WriteLine(DateTime.Now + " " + ClassName + " " + logLevel +": " + message);
             }
-            throw new System.NotImplementedException();
         }
     }
 }

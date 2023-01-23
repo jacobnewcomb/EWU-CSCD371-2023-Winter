@@ -4,9 +4,9 @@
     {
         private string? fileName;
         public string FileName { get => fileName; set => fileName = value; }
-        public BaseLogger CreateLogger(string className)
+        public BaseLogger? CreateLogger(string className)
         {
-            if(fileName is null)
+            if(string.IsNullOrEmpty(FileName))
             {
                 return null;
             }

@@ -38,9 +38,12 @@ namespace Logger
                 {
                     sb.Replace("{" + i + "}", objects[i].ToString());
                 }
-                baseLogger.Log(LogLevel.Error, sb.ToString());
+                baseLogger.Log(LogLevel.Warning, sb.ToString());
             }
-            baseLogger.Log(LogLevel.Warning, message);
+            else
+            {
+                baseLogger.Log(LogLevel.Warning, message);
+            }
         }
         public static void Information(this BaseLogger baseLogger, string message, params object[] objects)
         {
@@ -55,9 +58,12 @@ namespace Logger
                 {
                     sb.Replace("{" + i + "}", objects[i].ToString());
                 }
-                baseLogger.Log(LogLevel.Error, sb.ToString());
+                baseLogger.Log(LogLevel.Information, sb.ToString());
             }
-            baseLogger.Log(LogLevel.Information, message);
+            else
+            {
+                baseLogger.Log(LogLevel.Information, message);
+            }
         }
         public static void Debug(this BaseLogger baseLogger, string message, params object[] objects) 
         {
@@ -72,9 +78,12 @@ namespace Logger
                 {
                     sb.Replace("{" + i + "}", objects[i].ToString());
                 }
-                baseLogger.Log(LogLevel.Error, sb.ToString());
+                baseLogger.Log(LogLevel.Debug, sb.ToString());
             }
-            baseLogger.Log(LogLevel.Debug, message);
+            else
+            {
+                baseLogger.Log(LogLevel.Debug, message);
+            }
         }
     }
 }
