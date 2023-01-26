@@ -14,9 +14,9 @@ namespace Logger.Tests
 
             // Act
             logFactory.ConfigureFileLogger(null);
-            var fileLogger1 = logFactory.CreateLogger("I shouldn't exist!");
+            var fileLogger1 = logFactory.CreateLogger($"{nameof(LogFactoryTests)}_1");
             logFactory.ConfigureFileLogger("");
-            var fileLogger2 = logFactory.CreateLogger("Me neither!");
+            var fileLogger2 = logFactory.CreateLogger($"{nameof(LogFactoryTests)}_2");
 
             //Assert
             Assert.IsNull(fileLogger1);

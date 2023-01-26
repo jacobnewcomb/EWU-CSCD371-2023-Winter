@@ -10,10 +10,9 @@ namespace Logger.Tests
         public void FileLogger_WritesToFile()
         {
             //Arrange
-            string className = "I should work!";
-            string fileName = "test.txt";
-            File.Delete(fileName);
-            FileLogger fileLogger = new FileLogger(className, fileName);
+            string className = nameof(FileLoggerTests);
+            string fileName = Path.GetTempFileName();
+            FileLogger fileLogger = new FileLogger(fileName) { ClassName = className};
 
             // Act
             fileLogger.Log(LogLevel.Debug, "I am debugingggggg mom");
@@ -23,10 +22,10 @@ namespace Logger.Tests
             string[] content = File.ReadAllLines(fileName);
             Assert.IsTrue(content.Length == 2);
             Assert.IsTrue(content[0].Contains("I am debugingggggg mom"));
-            Assert.IsTrue(content[0].Contains("I should work!"));
+            Assert.IsTrue(content[0].Contains(className));
             Assert.IsTrue(content[0].Contains("Debug: "));
             Assert.IsTrue(content[1].Contains("It's not a phase mom!"));
-            Assert.IsTrue(content[1].Contains("I should work!"));
+            Assert.IsTrue(content[1].Contains(className));
             Assert.IsTrue(content[1].Contains("Warning: "));
         }
     }

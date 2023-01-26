@@ -1,24 +1,25 @@
-﻿namespace Logger
+﻿using System;
+
+namespace Logger
 {
     public class LogFactory
     {
-        private string? fileName;
-        public string FileName { get => fileName; set => fileName = value; }
+        private string? _fileName;
         public BaseLogger? CreateLogger(string className)
         {
-            if(string.IsNullOrEmpty(FileName))
+            if(string.IsNullOrEmpty(_fileName))
             {
                 return null;
             }
             else
             {
-                FileLogger fl = new FileLogger(FileName, className);
+                FileLogger fl = new FileLogger(_fileName) { ClassName = className};
                 return fl;
             }
         }
         public void ConfigureFileLogger(string fileName)
         {
-            FileName = fileName;
+            _fileName = fileName;
         }
     }
 }
