@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny
 {
-    internal interface ServiceWriter
+    public interface IServiceWriter
     {
-        void TellJoke(string joke);
+        public void TellJoke(string joke);
     }
 }

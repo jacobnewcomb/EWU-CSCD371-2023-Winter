@@ -7,21 +7,25 @@ using System.Threading.Tasks;
 
 namespace CanHazFunny
 {
-    internal class Jester
+    public class Jester
     {
-        public JokeService jokeService { get => _jokeService; set => _jokeService = value ?? throw new ArgumentNullException(value.ToString()); }
-        private JokeService _jokeService;
-        public JokeServiceWriter jokeServiceWriter { get => _jokeServiceWriter; set => _jokeServiceWriter = value ?? throw new ArgumentNullException(value.ToString()); }
-        private JokeServiceWriter _jokeServiceWriter;
-        public Jester() {}
+        public JokeService JokeService { get => _jokeService; set => _jokeService = value ?? throw new ArgumentNullException(value.ToString()); }
+        private JokeService? _jokeService;
+        public JokeServiceWriter JokeServiceWriter { get => _jokeServiceWriter; set => _jokeServiceWriter = value ?? throw new ArgumentNullException(value.ToString()); }
+        private JokeServiceWriter? _jokeServiceWriter;
+        public Jester(JokeService jokeService, JokeServiceWriter jokeServiceWriter) 
+        {
+            JokeService = jokeService;
+            JokeServiceWriter = jokeServiceWriter;
+        }
         public void TellJoke()
         {
-            string joke = jokeService.GetJoke();
-            while (joke.Contains("Chuck Norris"))
+            string joke = JokeService.GetJoke();
+            while (joke.Contains("Chuck Norris", StringComparison.CurrentCulture))
             {
-                joke = jokeService.GetJoke();
+                joke = JokeService.GetJoke();
             }
-            jokeServiceWriter.TellJoke(joke);
+            JokeServiceWriter.TellJoke(joke);
         }
     }
 }
