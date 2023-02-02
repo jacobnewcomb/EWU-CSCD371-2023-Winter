@@ -10,13 +10,13 @@ namespace CanHazFunny
     public class Jester
     {
         public IService JokeService { 
-            get => _JokeService; 
-            set => _JokeService = value ?? throw new ArgumentNullException(value.ToString());
+            get => _JokeService ?? throw new ArgumentNullException(null); 
+            set => _JokeService = value ?? throw new ArgumentNullException(null);
         }
         private IService? _JokeService;
         public IServiceWriter JokeServiceWriter {
-            get => _JokeServiceWriter; 
-            set => _JokeServiceWriter = value ?? throw new ArgumentNullException(value.ToString());
+            get => _JokeServiceWriter ?? throw new ArgumentNullException(null); 
+            set => _JokeServiceWriter = value ?? throw new ArgumentNullException(null);
         }
         private IServiceWriter? _JokeServiceWriter;
 
