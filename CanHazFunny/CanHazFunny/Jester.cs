@@ -13,7 +13,7 @@ namespace CanHazFunny
             get => _jokeService; 
             set => _jokeService = value ?? throw new ArgumentNullException(value.ToString());
         }
-        private JokeService? _jokeService;
+        private IService? _JokeService;
         public IServiceWriter JokeServiceWriter {
             get => _jokeServiceWriter; 
             set => _jokeServiceWriter = value ?? throw new ArgumentNullException(value.ToString());
