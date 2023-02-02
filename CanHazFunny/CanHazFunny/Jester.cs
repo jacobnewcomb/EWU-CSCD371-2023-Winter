@@ -19,6 +19,7 @@ namespace CanHazFunny
             JokeService = jokeService;
             JokeServiceWriter = jokeServiceWriter;
         }
+
         public void TellJoke()
         {
             string joke = JokeService.GetJoke();
