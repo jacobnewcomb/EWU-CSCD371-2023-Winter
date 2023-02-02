@@ -12,7 +12,7 @@ namespace CanHazFunny
         public JokeService JokeService { get => _jokeService; set => _jokeService = value ?? throw new ArgumentNullException(value.ToString()); }
         private JokeService? _jokeService;
         public JokeServiceWriter JokeServiceWriter { get => _jokeServiceWriter; set => _jokeServiceWriter = value ?? throw new ArgumentNullException(value.ToString()); }
-        private JokeServiceWriter? _jokeServiceWriter;
+        private IServiceWriter? _JokeServiceWriter;
 
         public Jester(JokeService jokeService, JokeServiceWriter jokeServiceWriter) 
         {
