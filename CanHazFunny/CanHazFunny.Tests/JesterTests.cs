@@ -8,7 +8,7 @@ namespace CanHazFunny.Tests
     public class JesterTests
     {
         [TestMethod]
-        public void JokeService_TellsJoke()
+        public void JokeService_TellsJoke_IsNotNull()
         {
             //Arrange
             Jester jester = new Jester(new JokeService(), new JokeServiceWriter());
