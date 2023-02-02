@@ -8,7 +8,7 @@ namespace CanHazFunny.Tests
     public class JesterTests
     {
         [TestMethod]
-        public void JokeService_TellsJoke_IsNotNull()
+        public void JokeService_TellsJoke()
         {
             //Arrange
             Jester jester = new Jester(new JokeService(), new JokeServiceWriter());
@@ -22,14 +22,15 @@ namespace CanHazFunny.Tests
         [TestMethod]
         public void JokeService_DoesntTellChuckNorrisJokes_Please() 
         {
-            StringWriter stringWriter = new StringWriter();
-            Console.SetOut(stringWriter);
+            //Arrange
+            Jester jester = new Jester(new JokeService(), new JokeServiceWriter());
 
-            // Act
-            Jester?.TellJoke();
+            //Act
+            string [] jokes = new string[10];
+            for(int i = 0; i < jokes.Length; i++) jokes[i] = jester.TellJoke();
 
-            // Assert
-            Assert.IsFalse(stringWriter.ToString().Contains("Chuck Norris"));
+            //Assert
+            for (int i = 0; i < jokes.Length; i++) Assert.AreEqual(false, jokes[i].Contains("Chuck Norris", System.StringComparison.CurrentCulture));
         }
     }
 }

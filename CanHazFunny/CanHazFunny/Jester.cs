@@ -10,13 +10,13 @@ namespace CanHazFunny
     public class Jester
     {
         public IService JokeService { 
-            get => _jokeService; 
-            set => _jokeService = value ?? throw new ArgumentNullException(value.ToString());
+            get => _JokeService; 
+            set => _JokeService = value ?? throw new ArgumentNullException(value.ToString());
         }
         private IService? _JokeService;
         public IServiceWriter JokeServiceWriter {
-            get => _jokeServiceWriter; 
-            set => _jokeServiceWriter = value ?? throw new ArgumentNullException(value.ToString());
+            get => _JokeServiceWriter; 
+            set => _JokeServiceWriter = value ?? throw new ArgumentNullException(value.ToString());
         }
         private IServiceWriter? _JokeServiceWriter;
 
@@ -26,7 +26,7 @@ namespace CanHazFunny
             JokeServiceWriter = jokeServiceWriter;
         }
 
-        public void TellJoke()
+        public string TellJoke()
         {
             string joke = JokeService.GetJoke();
             while (joke.Contains("Chuck Norris", StringComparison.CurrentCulture))
@@ -34,6 +34,7 @@ namespace CanHazFunny
                 joke = JokeService.GetJoke();
             }
             JokeServiceWriter.TellJoke(joke);
+            return joke;
         }
     }
 }
