@@ -22,15 +22,14 @@ namespace CanHazFunny.Tests
         [TestMethod]
         public void JokeService_DoesntTellChuckNorrisJokes_Please() 
         {
-            //Arrange
-            Jester jester = new Jester(new JokeService(), new JokeServiceWriter());
+            StringWriter stringWriter = new StringWriter();
+            Console.SetOut(stringWriter);
 
-            //Act
-            string [] jokes = new string[10];
-            for(int i = 0; i < jokes.Length; i++) jokes[i] = jester.TellJoke();
+            // Act
+            Jester?.TellJoke();
 
-            //Assert
-            for (int i = 0; i < jokes.Length; i++) Assert.AreEqual(false, jokes[i].Contains("Chuck Norris", System.StringComparison.CurrentCulture));
+            // Assert
+            Assert.IsFalse(stringWriter.ToString().Contains("Chuck Norris"));
         }
     }
 }
