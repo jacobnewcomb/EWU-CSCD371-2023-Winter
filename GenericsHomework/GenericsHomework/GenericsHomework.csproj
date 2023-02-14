@@ -9,4 +9,10 @@
 	<LangVersion>latest</LangVersion>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="NodeTests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="NodeTests\" />
+  </ItemGroup>
 </Project>
