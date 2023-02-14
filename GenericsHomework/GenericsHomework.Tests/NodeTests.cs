@@ -46,7 +46,7 @@ namespace GenericsHomework.Tests
         public void NodeExistTestFalse()
         {
             var node = new Node(10);
-            node.Append(20);
+            node.Append(30);
             var res = node.Exists(20);
             Assert.IsFalse(res);
         }

@@ -57,7 +57,7 @@ namespace GenericsHomework
             {
                 if(cursor.Value == value) return true;
                 cursor = cursor.Next;
-            } while (cursor.Next != this);
+            } while (cursor != this);
             return false;
         }
 
