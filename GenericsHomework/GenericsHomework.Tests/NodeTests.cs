@@ -8,6 +8,13 @@ namespace GenericsHomework.Tests
     public class NodeTests
     {
         [TestMethod]
+        public void NodeIsNotNull()
+        {
+            Node node = new Node(10);
+            Assert.IsNotNull(node.Next);
+        }
+
+        [TestMethod]
         public void NodeAppendTest()
         {
             var node = new Node(10);
