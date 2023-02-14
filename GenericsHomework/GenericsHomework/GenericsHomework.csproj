@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -11,8 +11,5 @@
 
   <ItemGroup>
     <None Remove="NodeTests\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="NodeTests\" />
   </ItemGroup>
 </Project>
