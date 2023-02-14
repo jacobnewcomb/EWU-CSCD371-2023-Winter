@@ -32,6 +32,7 @@ namespace GenericsHomework.Tests
         {
             var node = new Node(10);
             node.Append(20);
+            node.Append(30);
             node.Clear();
             Assert.AreEqual(1, CountNodes(node));
         }
