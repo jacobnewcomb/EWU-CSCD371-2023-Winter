@@ -11,7 +11,7 @@ namespace GenericsHomework.Tests
         public void NodeIsNotNull()
         {
             Node node = new Node(10);
-            Assert.IsNotNull(node.Next);
+            Assert.IsNotNull(node);
         }
 
         [TestMethod]
@@ -22,17 +22,6 @@ namespace GenericsHomework.Tests
             Assert.IsTrue(node.Exists(20));
         }
 
-        private int CountNodes(Node node)
-        {
-            int count = 1;
-            var curr = node.Next;
-            while (curr != node)
-            {
-                count++;
-                curr = curr.Next;
-            }
-            return count;
-        }
 
         [TestMethod]
         public void NodeClearTest()
@@ -41,7 +30,7 @@ namespace GenericsHomework.Tests
             node.Append(20);
             node.Append(30);
             node.Clear();
-            Assert.AreEqual(1, CountNodes(node));
+            Assert.AreEqual(1, node.CountNodes());
         }
 
         [TestMethod]

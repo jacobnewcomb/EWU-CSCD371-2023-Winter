@@ -61,6 +61,18 @@ namespace GenericsHomework
             return false;
         }
 
+        public int CountNodes()
+        {
+            int count = 1;
+            Node cursor = this.Next;
+            while (cursor != this)
+            {
+                count++;
+                cursor = cursor.Next;
+            }
+            return count;
+        }
+
 
 
     }
