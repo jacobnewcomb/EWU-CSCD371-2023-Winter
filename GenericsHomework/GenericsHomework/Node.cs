@@ -37,15 +37,18 @@ namespace GenericsHomework
 
         public void Clear()
         {
-            Node temp_1 = this;
-            Node temp_2 = this.Next;
-            while(temp_1 != temp_2)
-            {
-                temp_1.Next = temp_1;
-                temp_1 = temp_2;
-                temp_2 = temp_2.Next;
-            }
+            /* Node temp_1 = this;
+             Node temp_2 = this.Next;
+             while(temp_1 != temp_2)
+             {
+                 temp_1.Next = temp_1;
+                 temp_1 = temp_2;
+                 temp_2 = temp_2.Next;
+             }*/
+            Next = this;
         }
+        //we do not need to worry if it a circular list because the built in
+        //.Net garbage collector should be able to deal with it themselves
 
         public bool Exists(dynamic value)
         {
