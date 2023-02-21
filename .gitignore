@@ -351,4 +351,3 @@ MigrationBackup/
 
 # Live unit testing files.
 *.lutconfig
-/Calculate/Calculate/Calculator.cs
