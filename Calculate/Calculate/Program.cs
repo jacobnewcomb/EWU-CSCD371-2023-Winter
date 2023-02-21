@@ -23,8 +23,40 @@ namespace Calculate
 
 				program.WriteLine($"Test ReadLine {readInput}");
 			}
-		}
 
+			Calculator calculator = new();
+			//calculator.TryCalculate(program.WriteLine, program.ReadLine);
+
+			bool exit = false;
+
+			while(exit == false)
+			{
+				Console.WriteLine("Please input function: (format) x [opertor] y, or 'q' to quit program");
+
+				string userInput = Console.ReadLine().Trim();
+
+				if (string.IsNullOrWhiteSpace(userInput) || string.IsNullOrEmpty(userInput))
+				{
+					Console.WriteLine("Invalid Input, please try again");
+				}
+
+				if (Calculator.TryCalculate(userInput, out int x))
+				{
+					program.WriteLine(x.ToString());
+				}
+
+				else if (userInput.Equals("q"))
+				{
+					exit = true;
+				}
+
+				else
+				{
+					Console.WriteLine("Invalid input, please try again");
+				}
+			}
+
+		}
 	}
 }
 
