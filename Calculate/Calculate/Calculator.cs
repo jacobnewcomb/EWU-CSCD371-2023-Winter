@@ -5,7 +5,7 @@
         public static Func<int, int, int> Add = (a, b) => a + b;
         public static Func<int, int , int> Subtract = (a, b) => a - b;
         public static Func<int, int, int> Multiply = (a, b) => a * b;
-        public static Func<int, int, int> Divide = (a, b) => { if (b != 0) return a / b; else throw new DivideByZeroException(); };
+        public static Func<int, int, int> Divide = (a, b) => a / b;
 
         public static IReadOnlyDictionary<char, Func<int, int, int>> MathematicalOperations { get; } = new Dictionary<char, Func<int, int, int>>()
         {
