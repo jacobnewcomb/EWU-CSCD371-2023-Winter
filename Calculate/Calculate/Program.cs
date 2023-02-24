@@ -18,10 +18,10 @@ namespace Calculate
 		{
 			var program = new Program();
 			{
-				program.WriteLine("WriteLine test");
+				/*program.WriteLine("WriteLine test");
 				string readInput = program.ReadLine();
 
-				program.WriteLine($"Test ReadLine {readInput}");
+				program.WriteLine($"Test ReadLine {readInput}");*/
 			}
 
 			Calculator calculator = new();
@@ -31,7 +31,7 @@ namespace Calculate
 			{
 				program.WriteLine("Please input function: (format) x [opertor] y, or 'q' to quit program");
 
-				string userInput = Console.ReadLine().Trim();
+				string userInput = program.ReadLine().Trim();
 
 				if (string.IsNullOrWhiteSpace(userInput) || string.IsNullOrEmpty(userInput))
 				{
