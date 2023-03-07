@@ -10,7 +10,7 @@ namespace Assignment
     {
         // 1.
         //public IEnumerable<string> CsvRows => throw new NotImplementedException();
-        public IEnumerable<string> CsvRows 
+        public virtual IEnumerable<string> CsvRows 
         {
             get
             {
