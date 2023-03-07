@@ -24,14 +24,19 @@ namespace Assignment
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
         {
             //var StateList = new List<string>();
-            var UniqueStates = CsvRows.Select(row => row.Split(',')[6]).Distinct().OrderBy(state => state);
+            var uniqueStates = CsvRows.Select(row => row.Split(',')[6]).Distinct().OrderBy(state => state);
 
-            return UniqueStates;
+            return uniqueStates;
         }
             
         // 3.
         public string GetAggregateSortedListOfStatesUsingCsvRows()
-            => throw new NotImplementedException();
+        {
+            var uniqueStates = GetUniqueSortedListOfStatesGivenCsvRows().ToArray();
+
+            return string.Join(",", uniqueStates);
+        }
+            
 
         // 4.
         public IEnumerable<IPerson> People => throw new NotImplementedException();
