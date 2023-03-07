@@ -10,20 +10,25 @@ namespace Assignment
     {
         // 1.
         //public IEnumerable<string> CsvRows => throw new NotImplementedException();
-        public IEnumerable<string> CsvRows
+        public IEnumerable<string> CsvRows 
         {
             get
             {
-                var csvFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "People.csv");
-                var csvRows = File.ReadAllLines(csvFilePath).Skip(1);
-                return csvRows;
+                var CSVFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "People.csv");
+                var CSVRows = File.ReadAllLines(CSVFilePath).Skip(1);
+                return CSVRows;
             }
         }
 
         // 2.
-        public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows() 
-            => throw new NotImplementedException();
+        public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
+        {
+            //var StateList = new List<string>();
+            var UniqueStates = CsvRows.Select(row => row.Split(',')[6]).Distinct().OrderBy(state => state);
 
+            return UniqueStates;
+        }
+            
         // 3.
         public string GetAggregateSortedListOfStatesUsingCsvRows()
             => throw new NotImplementedException();
