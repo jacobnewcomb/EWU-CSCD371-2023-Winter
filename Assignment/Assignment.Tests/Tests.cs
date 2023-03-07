@@ -1,3 +1,5 @@
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 namespace Assignment.Tests
 {
     [TestClass]
@@ -17,17 +19,19 @@ namespace Assignment.Tests
         public void GetUniqueSortedListOfStatesGivenCsvRows_Hardcoded_Works()
         {
             SampleDataTest sample = new SampleDataTest();
-            IEnumerable<string> expectedResult = new string[] { "WA" };
+            string expectedResult = "WA";
+            string sampleStates = string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows());
 
-            Assert.AreEqual(sample.GetUniqueSortedListOfStatesGivenCsvRows(), expectedResult);
+            Assert.AreEqual(expectedResult, sampleStates);
         }
 
         [TestMethod]
         public void GetUniqueSortedListOfStatesGivenCsvRows_NonHarcoded_Works()
         {
             SampleData sample = new SampleData();
-            IEnumerable<string> result = sample.GetUniqueSortedListOfStatesGivenCsvRows();
-            Assert.AreEqual(true, sample.CsvRows.Select(row => row.Split(',')[6]).Distinct().OrderBy(state => state).(result));
+            string expectedResult = "AL, AZ, CA, DC, FL, GA, IN, KS, LA, MD, MN, MO, MT, NC, NE, NH, NV, NY, OR, PA, SC, TN, TX, UT, VA, WA, WV";
+            string sampleStates = string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows());
+            Assert.AreEqual(expectedResult, sampleStates);
         }
             
     }

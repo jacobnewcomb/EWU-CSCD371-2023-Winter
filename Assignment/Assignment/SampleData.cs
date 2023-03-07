@@ -24,7 +24,7 @@ namespace Assignment
         public IEnumerable<string> GetUniqueSortedListOfStatesGivenCsvRows()
         {
             //var StateList = new List<string>();
-            var uniqueStates = CsvRows.Select(row => row.Split(',')[6]).Distinct().OrderBy(state => state);
+            var uniqueStates = CsvRows.Select(row => row.Split(',')[6]).Distinct().OrderBy(state => state).ToList();
 
             return uniqueStates;
         }
