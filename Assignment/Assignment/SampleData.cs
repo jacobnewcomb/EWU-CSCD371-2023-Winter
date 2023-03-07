@@ -52,7 +52,15 @@ namespace Assignment
         }
 
         // 6.
-        public string GetAggregateListOfStatesGivenPeopleCollection(
-            IEnumerable<IPerson> people) => throw new NotImplementedException();
+        public string GetAggregateListOfStatesGivenPeopleCollection(IEnumerable<IPerson> people)
+        {
+            IEnumerable<string> states = new string[] { };
+            foreach (var person in people)
+            {
+                states.Append(person.Address.State);
+            }
+            states.Distinct();
+            return string.Join(',', states.ToArray());
+        }
     }
 }
