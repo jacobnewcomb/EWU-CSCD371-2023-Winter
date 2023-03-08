@@ -30,16 +30,28 @@ namespace Assignment
         }
             
         // 3.
+
         public string GetAggregateSortedListOfStatesUsingCsvRows()
         {
             var uniqueStates = GetUniqueSortedListOfStatesGivenCsvRows().ToArray();
 
             return string.Join(",", uniqueStates);
         }
-            
+
 
         // 4.
-        public IEnumerable<IPerson> People => throw new NotImplementedException();
+        public IEnumerable<IPerson> People => CsvRows.Skip(1)
+            .Select(row => row.Split(','))
+            .Select(data => new Person(
+                data[1],
+                data[2],
+                new Address(data[4], data[5], data[6], data[7]),
+                data[3]
+            ))
+            .OrderBy(person => person.Address.State)
+            .ThenBy(person => person.Address.City)
+            .ThenBy(person => person.Address.Zip)
+            .ToList();
 
         // 5.
         public IEnumerable<(string FirstName, string LastName)> FilterByEmailAddress(
