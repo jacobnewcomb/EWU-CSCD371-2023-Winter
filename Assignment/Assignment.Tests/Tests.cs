@@ -59,8 +59,22 @@ namespace Assignment.Tests
         [TestMethod]
         public void GetAggregateListOfStatesGivenPeopleCollection_Works()
         {
-            SampleData sample = new SampleData();
-            Assert.AreEqual(string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows()), sample.GetAggregateListOfStatesGivenPeopleCollection(sample.People));
+            //SampleData sample = new SampleData();
+            //Assert.AreEqual(string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows()), sample.GetAggregateListOfStatesGivenPeopleCollection(sample.People));
+
+            var sample = new SampleData();
+            var people = new List<IPerson>
+            {
+                new Person("John", "Doe", new Address("123 Main St", "Anytown", "CA", "12345"), "jdoe@example.com"),
+                new Person("Jane", "Doe", new Address("456 Elm St", "Othertown", "NY", "67890"), "jane@example.com"),
+                new Person("Bob", "Smith", new Address("789 Oak St", "AnotherTown", "TX", "09876"), "bob@example.com"),
+                new Person("Alice", "Jones", new Address("456 Pine St", "YetAnotherTown", "CA", "54321"), "alice@example.com"),
+            };
+
+            var result = sample.GetAggregateListOfStatesGivenPeopleCollection(people);
+
+            var expectedStates = new[] { "CA", "NY", "TX" }.OrderBy(s => s).ToList();
+            CollectionAssert.AreEqual(expectedStates, result.Split(", "));
         }
 
 
