@@ -72,7 +72,7 @@ namespace Assignment
                 states.Append(person.Address.State);
             }
             states.Distinct();
-            return string.Join(',', states.ToArray());
+            return string.Join(", ", states.ToArray());
         }
     }
 }

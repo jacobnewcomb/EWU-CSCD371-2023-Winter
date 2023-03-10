@@ -31,6 +31,14 @@ namespace Assignment.Tests
             SampleData sample = new SampleData();
             Assert.AreEqual(string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows()), string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows().OrderBy(state => state).ToList()));
         }
-            
+
+        [TestMethod]
+        public void GetAggregateListOfStatesGivenPeopleCollection_Works()
+        {
+            SampleData sample = new SampleData();
+            Assert.AreEqual(string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows()), sample.GetAggregateListOfStatesGivenPeopleCollection(sample.People));
+        }
+
+
     }
 }
