@@ -69,7 +69,7 @@ namespace Assignment
             IEnumerable<string> states = new string[] { };
             foreach (var person in people)
             {
-                states.Append(person.Address.State);
+                states = states.Concat(new[] { person.Address.State });
             }
             states.Distinct();
             return string.Join(", ", states.ToArray());
