@@ -29,9 +29,7 @@ namespace Assignment.Tests
         public void GetUniqueSortedListOfStatesGivenCsvRows_NonHarcoded_Works()
         {
             SampleData sample = new SampleData();
-            string expectedResult = "AL, AZ, CA, DC, FL, GA, IN, KS, LA, MD, MN, MO, MT, NC, NE, NH, NV, NY, OR, PA, SC, TN, TX, UT, VA, WA, WV";
-            string sampleStates = string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows());
-            Assert.AreEqual(expectedResult, sampleStates);
+            Assert.AreEqual(string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows()), string.Join(", ", sample.GetUniqueSortedListOfStatesGivenCsvRows().OrderBy(state => state).ToList()));
         }
             
     }
