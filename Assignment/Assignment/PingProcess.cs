@@ -81,8 +81,7 @@ public class PingProcess
     async public Task<PingResult> RunLongRunningAsync(
         string hostNameOrAddress, CancellationToken cancellationToken = default)
     {
-        Task<PingResult> task = Task.Factory.StartNew(() =>
-            Run(hostNameOrAddress), cancellationToken, TaskCreationOptions.LongRunning, TaskScheduler.Current);
+        Task<PingResult> task = RunAsync(hostNameOrAddress, cancellationToken);
         return await task;
     }
 
