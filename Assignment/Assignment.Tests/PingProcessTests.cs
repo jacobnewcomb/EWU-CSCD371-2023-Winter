@@ -65,7 +65,7 @@ public class PingProcessTests
     [TestMethod]
     public void RunAsync_UsingTaskReturn_Success()
     {
-        PingResult result = Sut.RunAsync("localhost").Result);
+        PingResult result = Sut.RunAsync("localhost").Result;
         
         AssertValidPingOutput(result);
 
